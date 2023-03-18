@@ -45,13 +45,15 @@ public class ProfessorZ extends Thread {
     /**
      * wait till ready for meeting
      */
-    synchronized void waitForMeeting() {
-        while (mansion.heroInSecret != mansion.numOfHero) {
-            try {
-                //wait till all heroes entered the secret room
-                wait(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    void waitForMeeting() {
+        synchronized (this.mansion) {
+            while (mansion.heroInSecret != mansion.numOfHero) {
+                try {
+                    //wait till all heroes entered the secret room
+                    this.mansion.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -59,13 +61,15 @@ public class ProfessorZ extends Thread {
     /**
      * wait till ready for end meeting
      */
-    synchronized void waitForEndMeeting() {
-        while (mansion.heroInSecret != 0) {
-            try {
-                //wait till all heroes leaves room
-                wait(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    void waitForEndMeeting() {
+        synchronized (this.mansion) {
+            while (mansion.heroInSecret != 0) {
+                try {
+                    //wait till all heroes leaves room
+                    this.mansion.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +77,10 @@ public class ProfessorZ extends Thread {
     /**
      * inform heroes the meeting is start
      */
-    synchronized void notifyMeeting() {
-        notifyAll();
+    void notifyMeeting() {
+        synchronized (this.mansion) {
+            this.mansion.notifyAll();
+        }
     }
 
 

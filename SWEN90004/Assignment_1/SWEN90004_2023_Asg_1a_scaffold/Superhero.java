@@ -65,13 +65,15 @@ public class Superhero extends Thread {
     /**
      * wait for professor to leave to enter mansion
      */
-    synchronized void waitForEnter() {
-        while (mansion.flag_professor) {
-            try {
-                //wait till the professor leaves
-                wait(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    void waitForEnter() {
+        synchronized (this.mansion) {
+            while (mansion.flag_professor) {
+                try {
+                    //wait till the professor leaves
+                    this.mansion.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -79,13 +81,15 @@ public class Superhero extends Thread {
     /**
      * wait for meeting start
      */
-    synchronized void waitForMeeting() {
-        while (!mansion.isMeeting) {
-            try {
-                //wait for professor to start the meeting
-                wait(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    void waitForMeeting() {
+        synchronized (this.mansion) {
+            while (!mansion.isMeeting) {
+                try {
+                    //wait for professor to start the meeting
+                    this.mansion.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -93,13 +97,15 @@ public class Superhero extends Thread {
     /**
      * wait for professor to leave mansion
      */
-    synchronized void waitForLeave() {
-        while (mansion.flag_professor) {
-            try {
-                //wait for professor
-                wait(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    void waitForLeave() {
+        synchronized (this.mansion) {
+            while (mansion.flag_professor) {
+                try {
+                    //wait for professor
+                    this.mansion.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -107,16 +113,16 @@ public class Superhero extends Thread {
     /**
      * if roster have no new mission, wait for mission
      */
-    synchronized void waitForMission() {
-        while (mission == null) {
-            try {
-                //wait for mission
-                wait(100);
-                this.mission = rosterNew.getMission();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    void waitForMission() {
+            while (mission == null) {
+                try {
+                    //wait for mission
+                    sleep(50);
+                    this.mission = rosterNew.getMission();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-        }
     }
 
 

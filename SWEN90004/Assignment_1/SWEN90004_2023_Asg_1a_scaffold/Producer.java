@@ -25,8 +25,6 @@ public class Producer extends Thread {
                 // create a new mission and send it to the roster.
                 Mission mission = Mission.getNewMission();
                 roster.addNew(mission);
-                // notify heroes waiting for mission
-                notifyHeroes();
                 // let some time pass before the next mission arrives
                 sleep(Params.MISSION_ADDITION_TIME);
             } catch (InterruptedException e) {
@@ -35,10 +33,4 @@ public class Producer extends Thread {
         }
     }
 
-    /**
-     * inform the hero waits for new mission
-     */
-    synchronized void notifyHeroes(){
-        notifyAll();
-    }
 }

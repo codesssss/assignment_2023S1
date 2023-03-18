@@ -1,5 +1,5 @@
 /**
- * Parameters for the superheros simulator.
+ * Parameters for the superheros' simulator.
  *
  * @author ngeard@unimelb.edu.au
  */

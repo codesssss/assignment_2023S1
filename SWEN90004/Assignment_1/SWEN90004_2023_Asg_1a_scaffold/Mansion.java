@@ -58,7 +58,7 @@ public class Mansion {
     synchronized void exitProfMansion() {
         flag_professor = false;
         //notify heroes want to enter or exit the mansion
-        notifyAll();
+        this.notifyAll();
         System.out.println(Thread.currentThread().getName() + " exits Mansion.");
     }
 
@@ -78,7 +78,7 @@ public class Mansion {
     public synchronized void enterSecretRoom() {
         heroInSecret++;
         //notify the professor heroes are in the secret room
-        notifyAll();
+        this.notifyAll();
         System.out.println(Thread.currentThread().getName() + " enters the Secret Room.");
     }
 
@@ -87,9 +87,8 @@ public class Mansion {
      */
     public synchronized void exitSecretRoom() {
         heroInSecret--;
-        notifyAll();
+        this.notifyAll();
         System.out.println(Thread.currentThread().getName() + " leaves the Secret Room.");
-
     }
 
     /**
