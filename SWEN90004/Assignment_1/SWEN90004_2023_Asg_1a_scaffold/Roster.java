@@ -12,6 +12,7 @@ public class Roster {
 
     /**
      * add new mission to newMission
+     *
      * @param mission the mission generated bt producer
      */
     synchronized void addNew(Mission mission) {
@@ -37,6 +38,7 @@ public class Roster {
 
     /**
      * add completed mission to complete roster
+     *
      * @param mission
      */
     synchronized void addComplete(Mission mission) {
@@ -46,6 +48,7 @@ public class Roster {
 
     /**
      * get mission for heroes
+     *
      * @return mission
      */
     synchronized Mission getMission() {

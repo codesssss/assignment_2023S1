@@ -8,7 +8,9 @@ public class Producer extends Thread {
 
     private Roster roster;
 
-    /** create a new producer
+    /**
+     * create a new producer
+     *
      * @param newAgenda
      */
     Producer(Roster newAgenda) {
@@ -16,7 +18,7 @@ public class Producer extends Thread {
     }
 
     /**
-    quests
+     * quests
      */
     @Override
     public void run() {

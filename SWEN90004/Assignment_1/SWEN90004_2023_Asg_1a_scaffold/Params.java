@@ -46,6 +46,7 @@ class Params {
 
     /**
      * generate a random discussion duration
+     *
      * @return
      */
     static int getDiscussionTime() {
@@ -55,6 +56,7 @@ class Params {
 
     /**
      * generate a random mission duration
+     *
      * @return
      */
     static int getMissionTime() {
@@ -64,6 +66,7 @@ class Params {
 
     /**
      * generate a random interval for Professor Z to be away
+     *
      * @return
      */
     static int getProfWaitingTime() {

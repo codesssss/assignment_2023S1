@@ -13,6 +13,7 @@ public class Consumer extends Thread {
 
     /**
      * creates a new consumer for the given roster
+     *
      * @param newAgenda
      */
     Consumer(Roster newAgenda) {

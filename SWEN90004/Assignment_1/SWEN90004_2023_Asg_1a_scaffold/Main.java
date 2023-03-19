@@ -1,17 +1,16 @@
 /**
  * The top-level component of the superheroes' simulator.
- *
+ * <p>
  * It is responsible for:
- *  - creating all the components of the system;
- *  - starting all the processes;
+ * - creating all the components of the system;
+ * - starting all the processes;
  *
  * @author ngeard@unimelb.edu.au
- *
  */
 
 public class Main {
 
-    public static void main(String [] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         // generate the mansion and mission rosters
         Roster rosterNew = new Roster("New Roster");

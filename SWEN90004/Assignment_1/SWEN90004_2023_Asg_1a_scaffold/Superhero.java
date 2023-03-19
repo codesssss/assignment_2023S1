@@ -115,15 +115,15 @@ public class Superhero extends Thread {
      * if roster have no new mission, wait for mission
      */
     void waitForMission() {
-            while (mission == null) {
-                try {
-                    //sleep for mission
-                    sleep(50);
-                    this.mission = rosterNew.getMission();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        while (mission == null) {
+            try {
+                //sleep for mission
+                sleep(50);
+                this.mission = rosterNew.getMission();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+        }
     }
 
 

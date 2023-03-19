@@ -32,7 +32,7 @@ public class Mansion {
         flagProfessor = false;
         numOfHero = 0;
         heroInSecret = 0;
-        isMeeting=false;
+        isMeeting = false;
         this.name = name;
     }
 
@@ -48,7 +48,6 @@ public class Mansion {
      * heroes exit mansion
      */
     synchronized void exitMansion() {
-//        numOfHero--;
         System.out.println(Thread.currentThread().getName() + " exits Mansion.");
     }
 
@@ -93,10 +92,11 @@ public class Mansion {
 
     /**
      * setter for isMeeting
+     *
      * @param isMeeting isMeeting
      */
-    synchronized void setIsMeeting(Boolean isMeeting){
-        this.isMeeting=isMeeting;
+    synchronized void setIsMeeting(Boolean isMeeting) {
+        this.isMeeting = isMeeting;
     }
 
 }

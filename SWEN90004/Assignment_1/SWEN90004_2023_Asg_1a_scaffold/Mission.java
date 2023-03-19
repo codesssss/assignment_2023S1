@@ -22,7 +22,8 @@ public class Mission {
     boolean completed;
 
 
-    /** create a new mission with a given identifier
+    /**
+     * create a new mission with a given identifier
      *
      * @param id id of mission
      */
@@ -31,7 +32,8 @@ public class Mission {
         this.completed = false;
     }
 
-    /** get a new Mission instance with a unique identifier
+    /**
+     * get a new Mission instance with a unique identifier
      *
      * @return
      */
@@ -39,7 +41,8 @@ public class Mission {
         return new Mission(nextId++);
     }
 
-    /** produce an identifying string for the mission
+    /**
+     * produce an identifying string for the mission
      *
      * @return
      */
@@ -51,7 +54,7 @@ public class Mission {
     /**
      * set the mission state to completed
      */
-    public void setMissionCompleted(){
-        completed=true;
+    public void setMissionCompleted() {
+        completed = true;
     }
 }
