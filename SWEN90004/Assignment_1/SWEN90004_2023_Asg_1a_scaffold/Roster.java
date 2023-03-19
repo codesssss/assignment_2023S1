@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * @description class for store the new missions and completed missions
  */
 public class Roster {
-    private volatile static ArrayList<Mission> newMission;
-    private volatile static ArrayList<Mission> completedMission;
+    private volatile ArrayList<Mission> newMission;
+    private volatile ArrayList<Mission> completedMission;
     private String name;
 
     /**

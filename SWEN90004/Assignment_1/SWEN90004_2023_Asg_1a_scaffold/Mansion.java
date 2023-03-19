@@ -6,7 +6,7 @@ public class Mansion {
     /**
      * flag for professor is in mansion or not
      */
-    volatile boolean flag_professor;
+    volatile boolean flagProfessor;
 
     /**
      * name of mansion
@@ -29,7 +29,7 @@ public class Mansion {
     volatile boolean isMeeting;
 
     Mansion(String name, Roster rosterNew, Roster rosterComplete) {
-        flag_professor = false;
+        flagProfessor = false;
         numOfHero = 0;
         heroInSecret = 0;
         isMeeting=false;
@@ -48,7 +48,7 @@ public class Mansion {
      * heroes exit mansion
      */
     synchronized void exitMansion() {
-        numOfHero--;
+//        numOfHero--;
         System.out.println(Thread.currentThread().getName() + " exits Mansion.");
     }
 
@@ -56,7 +56,7 @@ public class Mansion {
      * professor Z exit the mansion
      */
     synchronized void exitProfMansion() {
-        flag_professor = false;
+        flagProfessor = false;
         //notify heroes want to enter or exit the mansion
         this.notifyAll();
         System.out.println(Thread.currentThread().getName() + " exits Mansion.");
@@ -66,7 +66,7 @@ public class Mansion {
      * professor Z enter the mansion
      */
     synchronized void enterProfMansion() {
-        flag_professor = true;
+        flagProfessor = true;
         //notify heroes want to enter or exit the mansion
         //notifyAll();
         System.out.println(Thread.currentThread().getName() + " enters Mansion.");
@@ -93,7 +93,7 @@ public class Mansion {
 
     /**
      * setter for isMeeting
-     * @param isMeeting
+     * @param isMeeting isMeeting
      */
     synchronized void setIsMeeting(Boolean isMeeting){
         this.isMeeting=isMeeting;

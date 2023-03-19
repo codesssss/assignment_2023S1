@@ -67,7 +67,7 @@ public class Superhero extends Thread {
      */
     void waitForEnter() {
         synchronized (this.mansion) {
-            while (mansion.flag_professor) {
+            while (mansion.flagProfessor) {
                 try {
                     //wait till the professor leaves
                     this.mansion.wait();
@@ -99,7 +99,8 @@ public class Superhero extends Thread {
      */
     void waitForLeave() {
         synchronized (this.mansion) {
-            while (mansion.flag_professor) {
+            mansion.numOfHero--;
+            while (mansion.flagProfessor) {
                 try {
                     //wait for professor
                     this.mansion.wait();
@@ -116,7 +117,7 @@ public class Superhero extends Thread {
     void waitForMission() {
             while (mission == null) {
                 try {
-                    //wait for mission
+                    //sleep for mission
                     sleep(50);
                     this.mission = rosterNew.getMission();
                 } catch (InterruptedException e) {
